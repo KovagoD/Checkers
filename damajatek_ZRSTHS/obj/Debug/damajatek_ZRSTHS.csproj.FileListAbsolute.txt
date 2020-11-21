@@ -5,3 +5,10 @@ C:\Users\kovag\source\repos\damajatek_ZRSTHS\damajatek_ZRSTHS\obj\Debug\damajate
 C:\Users\kovag\source\repos\damajatek_ZRSTHS\damajatek_ZRSTHS\obj\Debug\damajatek_ZRSTHS.csproj.CoreCompileInputs.cache
 C:\Users\kovag\source\repos\damajatek_ZRSTHS\damajatek_ZRSTHS\obj\Debug\damajatek_ZRSTHS.exe
 C:\Users\kovag\source\repos\damajatek_ZRSTHS\damajatek_ZRSTHS\obj\Debug\damajatek_ZRSTHS.pdb
+C:\Development\damajatek_ZRSTHS\damajatek_ZRSTHS\bin\Debug\damajatek_ZRSTHS.exe.config
+C:\Development\damajatek_ZRSTHS\damajatek_ZRSTHS\bin\Debug\damajatek_ZRSTHS.exe
+C:\Development\damajatek_ZRSTHS\damajatek_ZRSTHS\bin\Debug\damajatek_ZRSTHS.pdb
+C:\Development\damajatek_ZRSTHS\damajatek_ZRSTHS\obj\Debug\damajatek_ZRSTHS.csprojAssemblyReference.cache
+C:\Development\damajatek_ZRSTHS\damajatek_ZRSTHS\obj\Debug\damajatek_ZRSTHS.csproj.CoreCompileInputs.cache
+C:\Development\damajatek_ZRSTHS\damajatek_ZRSTHS\obj\Debug\damajatek_ZRSTHS.exe
+C:\Development\damajatek_ZRSTHS\damajatek_ZRSTHS\obj\Debug\damajatek_ZRSTHS.pdb

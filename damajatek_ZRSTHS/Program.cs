@@ -175,6 +175,7 @@ namespace damajatek_ZRSTHS
         }
         private void SetBoard()
         {
+
             //computer
             spaces[0, 0] = new Space(new Checker("computer", 0, 0));
             spaces[0, 2] = new Space(new Checker("computer", 0, 2));
@@ -206,6 +207,7 @@ namespace damajatek_ZRSTHS
             spaces[7, 3] = new Space(new Checker("player", 7, 3));
             spaces[7, 5] = new Space(new Checker("player", 7, 5));
             spaces[7, 7] = new Space(new Checker("player", 7, 7));
+
         }
         private void DrawBoard()
         {
@@ -253,25 +255,33 @@ namespace damajatek_ZRSTHS
             bool isMoved = false;
             int tries = 0;
 
-            //Find checker
-            List<Checker> checkers = new List<Checker>();
+            Checker[] checkers = new Checker[CountChecker("computer")];
 
-            for (int x = 0; x < spaces.GetLength(0); x++)
+            for (int i = 0; i < checkers.Length; i++)
             {
-                for (int y = 0; y < spaces.GetLength(1); y++)
+                for (int x = 0; x < spaces.GetLength(0); x++)
                 {
-                    if (spaces[x, y].checker != null && spaces[x, y].checker.side == "computer")
+                    for (int y = 0; y < spaces.GetLength(1); y++)
                     {
-                        checkers.Add(spaces[x, y].checker);
+                        if (spaces[x, y].checker != null && spaces[x, y].checker.side == "computer" && !checkers.Contains(spaces[x, y].checker))
+                        {
+                            checkers[i] = spaces[x, y].checker;
+                        }
                     }
                 }
             }
 
             Random rnd = new Random();
-            int randomIndex = rnd.Next(0, (checkers.Count - 1));
 
-            while (!isMoved && tries <= checkers.Count)
+            while (!isMoved && tries <= checkers.Length)
             {
+                int randomIndex = rnd.Next(0, (checkers.Length - 1));
+
+                while (checkers[randomIndex] == null)
+                {
+                    randomIndex = rnd.Next(0, (checkers.Length - 1));
+                }
+
                 Checker checker = checkers[randomIndex];
                 int x1 = checker.x;
                 int y1 = checker.y;
@@ -410,8 +420,8 @@ namespace damajatek_ZRSTHS
                 else
                 {
                     tries++;
-                    checkers.RemoveAt(randomIndex);
                     isMoved = false;
+                    checkers[randomIndex] = null;
                 }
             }
             return isMoved;
@@ -616,7 +626,7 @@ namespace damajatek_ZRSTHS
                     {
                         if (checker.isDame)
                         {
-                            if (y2 == y1 + 1 || y2 == y1 - 1)
+                            if ((x2 == x1 - 1 || x2 == x1 + 1) && (y2 == y1 + 1 || y2 == y1 - 1))
                             {
                                 spaces[x2, y2] = spaces[x1, y1];
                                 spaces[x1, y1] = new Space();
@@ -627,7 +637,7 @@ namespace damajatek_ZRSTHS
                         }
                         else
                         {
-                            if (x2 < x1 && (y2 == y1 + 1 || y2 == y1 - 1))
+                            if (x2 == x1 - 1 && x2 < x1 && (y2 == y1 + 1 || y2 == y1 - 1))
                             {
                                 spaces[x2, y2] = spaces[x1, y1];
                                 spaces[x1, y1] = new Space();
